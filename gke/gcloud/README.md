@@ -1,5 +1,7 @@
 ```
-gcloud container clusters create test-cluster --zone australia-southeast1-a
+gcloud container clusters create test-cluster --zone us-central1-a --project=<project-id>
+```
+
 ```
 
 ```

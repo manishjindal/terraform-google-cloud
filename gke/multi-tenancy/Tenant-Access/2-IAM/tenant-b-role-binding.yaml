@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: pod-reader-binding
+  namespace: team-b
+subjects:
+# Google Group
+- kind: Group
+  name: team-b@manishjindal.joonix.net
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io

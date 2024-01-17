@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-kubernetes-tenant-b
+  namespace: tenant-b
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-kubernetes-tenant-b
+  template:
+    metadata:
+      labels:
+        app: hello-kubernetes-tenant-b
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: paulbouwer/hello-kubernetes:1.7
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MESSAGE
+          value: Hello from the tenant-b deployment!
