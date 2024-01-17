@@ -6,11 +6,11 @@ metadata:
 subjects:
 # Google Group
 - kind: Group
-  name: team-a@manishjindal.joonix.net
+  name: team-a@example.com
 - kind: Group
-  name: team-b@manishjindal.joonix.net
+  name: team-b@example.com
 - kind: Group
-  name: team-c@manishjindal.joonix.net
+  name: team-c@example.com
 roleRef:
   kind: Role
   name: pod-reader
