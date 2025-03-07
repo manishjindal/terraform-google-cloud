@@ -1,0 +1,44 @@
+# Source: placeholder/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: release-name-placeholder
+  labels:
+    helm.sh/chart: placeholder-0.1.0
+    app.kubernetes.io/name: placeholder
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: placeholder
+      app.kubernetes.io/instance: release-name
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: placeholder
+        app.kubernetes.io/instance: release-name
+    spec:
+      terminationGracePeriodSeconds: 0
+      priorityClassName: overprovisioning
+      containers:
+        - name: placeholder
+          image: "busybox:latest"
+          resources:
+            limits:
+              cpu: 2
+              memory: 4Gi
+            requests:
+              cpu: 2
+              memory: 4Gi
+          command: ["/bin/sh"]
+          args: ["-c", "sleep infinity"]
+          securityContext:
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1000
